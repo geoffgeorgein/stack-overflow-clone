@@ -1,7 +1,8 @@
 .navbar{
     width: 100%;
     min-height: 70px;
-    margin: 0% auto;
+    margin: 0 auto;
+    max-width: 1280px;
     box-shadow: 0px 1px 5px #00000033;
     position: fixed;
     z-index: 5;
@@ -11,7 +12,7 @@
     border-top: solid 3px #ef8266;
     background-color: #f8f9f9;
     justify-content: space-between;
-
+    
 
     .nav-item{
         margin: 0px 3px;
@@ -33,6 +34,31 @@
     form{
         display: flex;
         align-items: center;
+
+        flex-grow: 1;
+        padding: 0px 12px;
+        position: relative;
+       
+
+        input{
+            min-width: 90%;
+            margin: 0;
+            padding: 8px 10px 8px 32px;
+            font-size: 13px;
+            border: solid 1px #0000003e;
+            border-radius: 3px;
+            
+        }
+
+        .search-icon{
+            position: absolute;
+            top: 8px;
+            left: 25px;
+        }
+    }
+
+    .navbar-2{
+        display: flex;
     }
 }
 
