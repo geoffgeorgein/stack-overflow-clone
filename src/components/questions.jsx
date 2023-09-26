@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import moment from "moment";
+// import './homemainbar.scss';
 
 const Questions = ({question}) => {
   return (
-    <div className='display-ans-container' >
+    <div className='display-question-container' >
         <div className='display-votes-ans'>
 
             <p>{question.votes}</p>
@@ -20,8 +22,19 @@ const Questions = ({question}) => {
 
         <div className='display-question-details'>
 
-            <Link to={`/questions/${question.id}`}/>
+            <Link to={`/questions/${question.id}`}>{question.title}</Link>
 
+        </div>
+
+        <div className="display-tags-time">
+          <div className="display-tags">
+            {question.questionTags.map((tag) => (
+              <p key={tag}>{tag}</p>
+            ))}
+          </div>
+          {/* <p className="display-time">
+            asked {moment(question.askedOn).fromNow()} {question.userPosted}
+          </p> */}
         </div>
     </div>
   )

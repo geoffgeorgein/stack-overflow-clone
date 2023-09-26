@@ -2,6 +2,7 @@
 import { useLocation } from 'react-router-dom';
 import Questions from './questions';
 import QuestionList from './questionList';
+import "./homemainbar.scss";
 
 const HomeMainbar = () => {
 
@@ -11,6 +12,7 @@ const HomeMainbar = () => {
       votes:1,
       title:"what is a function",
       noOfAnswers:5,
+      questionTags:['js','react','nodejs']
       
     },
     {
@@ -18,6 +20,7 @@ const HomeMainbar = () => {
       votes:3,
       title:"what is a function",
       noOfAnswers:15,
+      questionTags:['R','python','nodejs']
       
     }
   ]
