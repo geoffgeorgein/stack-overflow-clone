@@ -4,17 +4,36 @@ import "./App.css";
 import HomePage from "./pages/homePage";
 import Auth from "./pages/auth";
 import Navbar from "./components/navbar";
+import { useEffect, useState } from "react";
+import Questions from "./pages/questions";
 
 function App() {
+
+  const [slideIn, setSlideIn] = useState(true);
+
+  useEffect(() => {
+    if (window.innerWidth <= 760) {
+      setSlideIn(false);
+    }
+  }, []);
+
+  const handleSlideIn = () => {
+    if (window.innerWidth <= 760) {
+      setSlideIn((state) => !state);
+    }
+  }
   return (
     <>
       <Navbar />
       <Routes>
         <Route
-          path="/" element={<HomePage/>}
+          path="/" element={<HomePage slideIn={slideIn} handleSlideIn={handleSlideIn} />}
         ></Route>
         <Route
           path="/auth" element={<Auth/>}
+        ></Route>
+        <Route
+          path="/questions" element={<Questions/>}
         ></Route>
       </Routes>
       

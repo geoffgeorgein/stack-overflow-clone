@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react'
-
-import './homepage.scss';
+import React from 'react'
 import LeftSidebar from '../components/leftSidebar';
 import HomeMainbar from '../components/homeMainbar';
 import RightSidebar from '../components/rightSidebar';
 
-const HomePage = ({slideIn,handleSlideIn}) => {
-
-  
+const Questions = ({slideIn,handleSlideIn}) => {
   return (
     <div className='homepage'>
 
@@ -25,4 +21,4 @@ const HomePage = ({slideIn,handleSlideIn}) => {
   )
 }
 
-export default HomePage
+export default Questions;
