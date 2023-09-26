@@ -1,5 +1,7 @@
 
 import { useLocation } from 'react-router-dom';
+import Questions from './questions';
+import QuestionList from './questionList';
 
 const HomeMainbar = () => {
 
@@ -7,7 +9,16 @@ const HomeMainbar = () => {
     {
       id:1,
       votes:1,
-      title:"what is a function"
+      title:"what is a function",
+      noOfAnswers:5,
+      
+    },
+    {
+      id:2,
+      votes:3,
+      title:"what is a function",
+      noOfAnswers:15,
+      
     }
   ]
 
@@ -30,6 +41,7 @@ const HomeMainbar = () => {
           <h1>...Loading</h1>:
           <>
             <p>{questionsList.length}questions</p>
+            <QuestionList questionsList={questionsList}/>
           </>
         }
       </div>
