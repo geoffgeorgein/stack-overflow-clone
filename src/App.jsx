@@ -6,6 +6,7 @@ import Auth from "./pages/auth";
 import Navbar from "./components/navbar";
 import { useEffect, useState } from "react";
 import Questions from "./pages/questions";
+import AskQuestion from "./pages/askQuestion";
 
 function App() {
 
@@ -34,6 +35,9 @@ function App() {
         ></Route>
         <Route
           path="/questions" element={<Questions/>}
+        ></Route>
+        <Route
+          path="/askquestion" element={<AskQuestion/>}
         ></Route>
       </Routes>
       
