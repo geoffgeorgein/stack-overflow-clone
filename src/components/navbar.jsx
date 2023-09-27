@@ -14,6 +14,10 @@ const Navbar = () => {
   }
   return (
     <div className='navbar'>
+
+        <div className='nav-container'>
+
+        
         <Link to={'/'} className='nav-item nav-btn'  > 
             <img src={logo} alt='logo' />
             
@@ -54,6 +58,8 @@ const Navbar = () => {
               </button>
             </>
           )}
+        </div>
+
         </div>
         
         
