@@ -7,6 +7,7 @@ import Navbar from "./components/navbar";
 import { useEffect, useState } from "react";
 import Questions from "./pages/questions";
 import AskQuestion from "./pages/askQuestion";
+import DisplayQuestion from "./pages/displayQuestion";
 
 function App() {
 
@@ -38,6 +39,9 @@ function App() {
         ></Route>
         <Route
           path="/askquestion" element={<AskQuestion/>}
+        ></Route>
+        <Route
+          path="/questions/:id" element={<DisplayQuestion/>}
         ></Route>
       </Routes>
       
