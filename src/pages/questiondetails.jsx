@@ -24,7 +24,18 @@ const Questionsdetails = () => {
         questionTitle:"What is a function",
         questionTags:['css','js']
 
-    }]
+    },
+    {
+        _id:'2',
+        upVotes:4,
+        downVotes:2,
+        noOfAnswers:2,
+        questionTitle:"What is a JS",
+        questionTags:['css','js','nodejs']
+    }
+        
+  
+  ]
 
     const handleDelete=()=>{
 
@@ -54,7 +65,7 @@ const Questionsdetails = () => {
                                 <div className='question-votes'>
 
                                     <img src={upvote} width="18"></img>
-                                    <p></p>
+                                    <p>{question.upVotes-question.downVotes}</p>
                                     <img src={downvote} width="18"></img>
 
                                 </div>
