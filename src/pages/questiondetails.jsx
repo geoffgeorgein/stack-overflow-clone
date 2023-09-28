@@ -53,9 +53,9 @@ const Questionsdetails = () => {
 
                                 <div className='question-votes'>
 
-                                    <img src={"upvote"}></img>
+                                    <img src={upvote} width="18"></img>
                                     <p></p>
-                                    <img src={"downvote"}></img>
+                                    <img src={downvote} width="18"></img>
 
                                 </div>
 
