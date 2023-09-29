@@ -24,6 +24,8 @@ const Navbar = () => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
   },[dispatch])
 
+  console.log("User",User)
+
   return (
     <div className='navbar'>
 
@@ -47,13 +49,14 @@ const Navbar = () => {
           {User === null ? (
             <Link to="/Auth" className="nav-item nav-links">
               Log in
+              
             </Link>
           ) : (
             <>
               <Avatar
                 backgroundColor="#009dff"
-                px="10px"
-                py="7px"
+                px="7px"
+                py="4px"
                 borderRadius="50%"
                 color="white"
               >
@@ -61,8 +64,8 @@ const Navbar = () => {
                   to={`/Users/${User?.result?._id}`}
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  {/* {User.result.name.charAt(0).toUpperCase()} */}
-                  M
+                  {User.result.name.charAt(0).toUpperCase()}
+                 
                 </Link>
               </Avatar>
               <button className="nav-item nav-links" onClick={handleLogout}>
