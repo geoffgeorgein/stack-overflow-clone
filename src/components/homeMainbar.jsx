@@ -1,8 +1,8 @@
 
 import { useLocation, useNavigate } from 'react-router-dom';
-import Questions from './questions';
 import QuestionList from './questionList';
 import "./homemainbar.scss";
+import { useSelector } from 'react-redux';
 
 const HomeMainbar = () => {
 
@@ -10,7 +10,11 @@ const HomeMainbar = () => {
   const location=useLocation();
   const user=2;
 
-  const questionsList=[
+  const questionsList=useSelector(state=>state.questionsReducer);
+
+  console.log("ques",questionsList);
+
+  const questionsList1=[
     {
       id:1,
       votes:1,
@@ -60,8 +64,8 @@ const HomeMainbar = () => {
           questionsList===null?
           <h1>...Loading</h1>:
           <>
-            <p>{questionsList.length}questions</p>
-            <QuestionList questionsList={questionsList}/>
+            <p>{questionsList.data.length}questions</p>
+            <QuestionList questionsList={questionsList.data}/>
           </>
         }
       </div>

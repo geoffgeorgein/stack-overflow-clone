@@ -8,10 +8,20 @@ import { useEffect, useState } from "react";
 import Questions from "./pages/questions";
 import AskQuestion from "./pages/askQuestion";
 import DisplayQuestion from "./pages/displayQuestion";
+import { useDispatch } from "react-redux";
+import { fetchAllQuestions } from "./actions/question";
 
 function App() {
 
   const [slideIn, setSlideIn] = useState(true);
+
+  const dispatch = useDispatch();
+  // fetchAllQuestions();
+  console.log("ftch")
+  useEffect(() => {
+    dispatch(fetchAllQuestions());
+    // dispatch(fetchAllUsers());
+  }, [dispatch]);
 
   useEffect(() => {
     if (window.innerWidth <= 760) {

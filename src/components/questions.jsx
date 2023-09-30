@@ -22,7 +22,7 @@ const Questions = ({question}) => {
 
         <div className='display-question-details'>
 
-            <Link to={`/questions/${question.id}`}>{question.title}</Link>
+            <Link to={`/questions/${question._id}`}>{question.questionTitle}</Link>
 
         </div>
 
