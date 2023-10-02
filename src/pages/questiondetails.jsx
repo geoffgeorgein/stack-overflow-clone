@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import moment from "moment";
 import copy from "copy-to-clipboard";
 
@@ -8,34 +8,41 @@ import downvote from "../assets/sort-down.svg";
 import Avatar from '../components/avatar';
 import DisplayAnswer from './displayAnswer';
 import './questions.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { postAnswer } from '../actions/question';
 
 const Questionsdetails = () => {
 
     const {id}=useParams();
     const [Answer, setAnswer] = useState("");
 
+    const questionsList = useSelector((state) => state.questionsReducer);
+    console.log(questionsList);
+
     const User=null;
 
-    var questionsList=[{
-        _id:'1',
-        upVotes:3,
-        downVotes:2,
-        noOfAnswers:2,
-        questionTitle:"What is a function",
-        questionTags:['css','js']
+  //   var questionsList=[{
+  //       _id:'1',
+  //       upVotes:3,
+  //       downVotes:2,
+  //       noOfAnswers:2,
+  //       questionTitle:"What is a function",
+  //       questionTags:['css','js']
 
-    },
-    {
-        _id:'2',
-        upVotes:4,
-        downVotes:2,
-        noOfAnswers:2,
-        questionTitle:"What is a JS",
-        questionTags:['css','js','nodejs']
-    }
+  //   },
+  //   {
+  //       _id:'2',
+  //       upVotes:4,
+  //       downVotes:2,
+  //       noOfAnswers:2,
+  //       questionTitle:"What is a JS",
+  //       questionTags:['css','js','nodejs']
+  //   }
         
   
-  ]
+  // ]
+
+  const dispatch = useDispatch();
 
     const handleDelete=()=>{
 
@@ -44,8 +51,26 @@ const Questionsdetails = () => {
         
     }
    
-    const handlePostAns=()=>{
-        
+    const handlePostAns = (e, answerLength) => {
+      e.preventDefault();
+      if (User === null) {
+        alert("Login or Signup to answer a question");
+        Navigate("/Auth");
+      } else {
+        if (Answer === "") {
+          alert("Enter an answer before submitting");
+        } else {
+          dispatch(
+            postAnswer({
+              id,
+              noOfAnswers: answerLength + 1,
+              answerBody: Answer,
+              userAnswered: User.result.name,
+            })
+          );
+          setAnswer("");
+        }
+      }
     }
   return (
     <div className='question-details-page'>
@@ -55,7 +80,7 @@ const Questionsdetails = () => {
         <h1>Loading...</h1>:
         <>
             {
-                questionsList.filter(question=>question._id===id).map(question=>(
+                questionsList.data.filter(question=>question._id===id).map(question=>(
                     <div key={question._id}>
                         <section className='question-details-container'>
 

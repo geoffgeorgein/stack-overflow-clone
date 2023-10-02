@@ -16,10 +16,12 @@ function App() {
   const [slideIn, setSlideIn] = useState(true);
 
   const dispatch = useDispatch();
-  // fetchAllQuestions();
+  fetchAllQuestions();
   console.log("ftch")
   useEffect(() => {
     dispatch(fetchAllQuestions());
+    console.log("ftch1")
+
     // dispatch(fetchAllUsers());
   }, [dispatch]);
 

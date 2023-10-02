@@ -17,7 +17,9 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogout=()=>{
-
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+    dispatch(setCurrentUser(null));
   }
 
   useEffect(()=>{
