@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import moment from "moment";
 import copy from "copy-to-clipboard";
 
@@ -19,7 +19,12 @@ const Questionsdetails = () => {
     const questionsList = useSelector((state) => state.questionsReducer);
     console.log(questionsList);
 
-    const User=null;
+    const location = useLocation();
+    const url = "http://127.0.0.1:5173";
+
+    // const User=null;
+    const User = useSelector((state) => state.currentUserReducer);
+    console.log("AnswerU",User);
 
   //   var questionsList=[{
   //       _id:'1',
@@ -48,7 +53,8 @@ const Questionsdetails = () => {
 
     }
     const handleShare=()=>{
-        
+      copy(url + location.pathname);
+      alert("Copied url : " + url + location.pathname);
     }
    
     const handlePostAns = (e, answerLength) => {
