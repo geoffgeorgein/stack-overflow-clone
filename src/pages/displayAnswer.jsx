@@ -4,15 +4,16 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import Avatar from "../components/avatar";
-// import { deleteAnswer } from "../actions/question";
+import { deleteAnswer } from "../actions/question";
 
 const DisplayAnswer = ({ question, handleShare }) => {
   const User = useSelector((state) => state.currentUserReducer);
   const { id } = useParams();
   const dispatch = useDispatch();
   const handleDelete = (answerId, noOfAnswers) => {
-    // dispatch(deleteAnswer(id, answerId, noOfAnswers - 1));
+    dispatch(deleteAnswer(id, answerId, noOfAnswers - 1));
   };
+  console.log("question",question);
   return (
     <div>
       {question.answer.map((ans) => (

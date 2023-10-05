@@ -17,7 +17,7 @@ const Questionsdetails = () => {
     const [Answer, setAnswer] = useState("");
 
     const questionsList = useSelector((state) => state.questionsReducer);
-    console.log(questionsList);
+    console.log("list",questionsList);
 
     const location = useLocation();
     const url = "http://127.0.0.1:5173";
@@ -72,6 +72,7 @@ const Questionsdetails = () => {
               noOfAnswers: answerLength + 1,
               answerBody: Answer,
               userAnswered: User.result.name,
+              userId:User.result._id
             })
           );
           setAnswer("");
