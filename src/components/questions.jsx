@@ -8,7 +8,7 @@ const Questions = ({question}) => {
     <div className='display-question-container' >
         <div className='display-votes-ans'>
 
-            <p>{question.votes}</p>
+            <p>{question.upVote?.length-question.downVote?.length}</p>
             <p>votes</p>
 
         </div>
