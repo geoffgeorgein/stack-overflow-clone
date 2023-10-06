@@ -6,6 +6,7 @@ import search from '../assets/search-solid.svg';
 import Avatar from './avatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from "../actions/currentUser";
+import decode from "jwt-decode";
 
 
 const Navbar = () => {
@@ -23,6 +24,13 @@ const Navbar = () => {
   }
 
   useEffect(()=>{
+    const token = User?.token;
+    if (token) {
+      const decodedToken = decode(token);
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
+        handleLogout();
+      }
+    }
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
   },[dispatch])
 
