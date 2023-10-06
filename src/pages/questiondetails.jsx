@@ -9,7 +9,7 @@ import Avatar from '../components/avatar';
 import DisplayAnswer from './displayAnswer';
 import './questions.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { postAnswer } from '../actions/question';
+import { deleteQuestion, postAnswer, voteQuestion } from '../actions/question';
 
 const Questionsdetails = () => {
 
@@ -50,7 +50,7 @@ const Questionsdetails = () => {
   const dispatch = useDispatch();
 
     const handleDelete=()=>{
-
+      dispatch(deleteQuestion(id, Navigate));
     }
     const handleShare=()=>{
       copy(url + location.pathname);
@@ -79,6 +79,24 @@ const Questionsdetails = () => {
         }
       }
     }
+
+    const handleUpVote = () => {
+      if (User === null) {
+        alert("Login or Signup to up vote a question");
+        Navigate("/Auth");
+      } else {
+        dispatch(voteQuestion(id, "upVote",User.result._id));
+      }
+    };
+  
+    const handleDownVote = () => {
+      if (User === null) {
+        alert("Login or Signup to down vote a question");
+        Navigate("/Auth");
+      } else {
+        dispatch(voteQuestion(id, "downVote",User.result._id));
+      }
+    };
   return (
     <div className='question-details-page'>
 
@@ -96,9 +114,9 @@ const Questionsdetails = () => {
 
                                 <div className='question-votes'>
 
-                                    <img src={upvote} width="18"></img>
-                                    <p>{question.upVotes-question.downVotes}</p>
-                                    <img src={downvote} width="18"></img>
+                                    <img src={upvote} width="18" onClick={handleUpVote}></img>
+                                    <p>{question.upVote?.length-question.downVote?.length}</p>
+                                    <img src={downvote} width="18" onClick={handleDownVote}></img>
 
                                 </div>
 
