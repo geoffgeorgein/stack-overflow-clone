@@ -13,6 +13,7 @@ import { fetchAllQuestions } from "./actions/question";
 import Tags from "./pages/tags";
 import Users from "./pages/users";
 import { fetchAllUsers } from "./actions/users";
+import UserProfile from "./pages/userProfile";
 
 function App() {
   const [slideIn, setSlideIn] = useState(true);
@@ -56,6 +57,12 @@ function App() {
           path="/users"
           element={<Users slideIn={slideIn} handleSlideIn={handleSlideIn} />}
         /> 
+        <Route
+        path="/Users/:id"
+        element={
+          <UserProfile slideIn={slideIn} handleSlideIn={handleSlideIn} />
+        }
+      />
       </Routes>
     </>
   );

@@ -28,6 +28,7 @@ const Navbar = () => {
     if (token) {
       const decodedToken = decode(token);
       if (decodedToken.exp * 1000 < new Date().getTime()) {
+        console.log("expiry",decodedToken.exp * 1000);
         handleLogout();
       }
     }
@@ -71,7 +72,7 @@ const Navbar = () => {
                 color="white"
               >
                 <Link
-                  to={`/Users/${User?.result?._id}`}
+                  to={`/users/${User?.result?._id}`}
                   style={{ color: "white", textDecoration: "none" }}
                 >
                   {User.result.name.charAt(0).toUpperCase()}
