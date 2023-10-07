@@ -15,7 +15,7 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
   return (
     <div
       className="left-sidebar"
-      style={slideIn ? slideInStyle : slideOutStyle}
+      // style={slideIn ? slideInStyle : slideOutStyle}
     >
       <nav className="side-nav">
         <button onClick={() => handleSlideIn()} className="nav-btn">
@@ -39,7 +39,7 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
           </button>
           <button onClick={() => handleSlideIn()} className="nav-btn">
             <NavLink
-              to="/Tags"
+              to="/tags"
               className="side-nav-links"
               activeclassname="active"
               style={{ paddingLeft: "40px" }}
@@ -49,7 +49,7 @@ const LeftSidebar = ({ slideIn, handleSlideIn }) => {
           </button>
           <button onClick={() => handleSlideIn()} className="nav-btn">
             <NavLink
-              to="/Users"
+              to="/users"
               className="side-nav-links"
               activeclassname="active"
               style={{ paddingLeft: "40px" }}
