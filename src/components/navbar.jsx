@@ -66,8 +66,8 @@ const Navbar = () => {
             <>
               <Avatar
                 backgroundColor="#009dff"
-                px="7px"
-                py="4px"
+                px="6px"
+                py="2px"
                 borderRadius="50%"
                 color="white"
               >
