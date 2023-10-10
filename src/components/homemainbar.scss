@@ -1,3 +1,5 @@
+@import "../global.scss";
+
 .main-bar {
     width: calc(100% - 300px - 24px);
     float: left;
@@ -9,10 +11,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 30px;
   }
   
   .main-bar-header h1 {
     font-weight: 400;
+    
+    @include mobile{
+      font-size: 1.5rem;
+  }
+
   }
   
   .main-bar-header .ask-btn {
@@ -23,6 +31,11 @@
     border: none;
     text-decoration: none;
     transition: 0.3s;
+    @include mobile{
+      font-size: 0.8rem;
+      padding: 6px 9px;
+  }
+
   }
   
   .main-bar-header .ask-btn:hover {

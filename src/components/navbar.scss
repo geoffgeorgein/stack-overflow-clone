@@ -1,3 +1,5 @@
+@import "../global.scss";
+
 .navbar{
     width: 100%;
     min-height: 70px;
@@ -26,6 +28,12 @@
             color: rgb(69,69,69);
             transition: 0.2s;
         }
+
+        .list{
+            @include mobile{
+                display: none;
+            }
+        }
     
         .nav-item:hover{
             background-color: rgb(200,195,195);
@@ -43,6 +51,10 @@
             flex-grow: 1;
             padding: 0px 12px;
             position: relative;
+            
+            @include mobile{
+                display: none;
+            }
            
     
             input{

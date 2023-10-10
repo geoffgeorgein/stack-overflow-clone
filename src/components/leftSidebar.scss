@@ -1,3 +1,5 @@
+@import "../global.scss";
+
 .left-sidebar {
     width: 164px;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
@@ -7,7 +9,12 @@
     transition: box-shadow ease-in-out 0.1s, transform ease-in-out 0.1s;
     box-sizing: border-box;
     font-size: 13px;
-  }
+
+    @include mobile{
+      display: none;
+    }
+}
+  
   
   .nav-btn {
     background-color: inherit;
